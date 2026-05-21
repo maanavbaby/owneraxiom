@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>OWNERAXIOM</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:black;
+overflow:hidden;
+font-family:'Poppins',sans-serif;
+color:white;
+cursor:pointer;
+}
+
+/* PARTICLES */
+
+#particles-js{
+position:fixed;
+width:100%;
+height:100%;
+z-index:-5;
+background:
+radial-gradient(circle at top,#12051f,#000);
+}
+
+/* BIG BG TEXT */
+
+.bgText{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+transition:transform 0.15s linear;
+will-change:transform;
+font-size:14vw;
+font-family:'Michroma',sans-serif;
+font-weight:900;
+opacity:0.06;
+letter-spacing:20px;
+animation:bgZoom 7s infinite alternate ease-in-out;
+pointer-events:none;
+user-select:none;
+z-index:-2;
+text-align:center;
+line-height:0.9;
+}
+
+.bgText span{
+display:block;
+font-size:5vw;
+margin-top:15px;
+color:#a855f7;
+text-shadow:
+0 0 15px #8b5cf6,
+0 0 40px #8b5cf6;
+}
+
+/* BG ANIMATION */
+
+@keyframes bgZoom{
+
+0%{
+transform:translate(-50%,-50%) scale(1);
+opacity:0.05;
+}
+
+100%{
+transform:translate(-50%,-50%) scale(1.15);
+opacity:0.1;
+}
+
+}
+
+/* ENTER SCREEN */
+
+.overlay{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.97);
+backdrop-filter:blur(18px);
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:999;
+transition:1s;
+cursor:pointer;
+}
+
+.overlay h1{
+font-size:5rem;
+font-family:'Michroma',sans-serif;
+letter-spacing:10px;
+text-shadow:
+0 0 10px white,
+0 0 25px #8b5cf6,
+0 0 60px #8b5cf6,
+0 0 120px #8b5cf6;
+animation:pulse 2s infinite alternate;
+text-align:center;
+}
+
+.overlay p{
+margin-top:20px;
+letter-spacing:5px;
+opacity:0.8;
+font-size:1rem;
+}
+
+.enterIcon{
+margin-top:20px;
+font-size:3rem;
+animation:float 2s infinite;
+}
+
+.clickBox{
+margin-top:18px;
+padding:14px 40px;
+border-radius:50px;
+background:rgba(139,92,246,0.15);
+border:1px solid rgba(255,255,255,0.2);
+backdrop-filter:blur(10px);
+font-family:'Michroma',sans-serif;
+letter-spacing:4px;
+font-size:0.9rem;
+animation:clickGlow 1.5s infinite alternate;
+box-shadow:0 0 25px rgba(139,92,246,0.5);
+}
+
+@keyframes clickGlow{
+
+from{
+transform:scale(1);
+box-shadow:0 0 10px rgba(139,92,246,0.4);
+}
+
+to{
+transform:scale(1.08);
+box-shadow:0 0 40px rgba(139,92,246,1);
+}
+
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+@keyframes pulse{
+
+from{
+text-shadow:0 0 10px white,0 0 20px #8b5cf6;
+}
+
+to{
+text-shadow:0 0 25px white,0 0 50px #8b5cf6,0 0 120px #8b5cf6;
+}
+
+}
+
+/* MAIN */
+
+.container{
+width:100%;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+perspective:1000px;
+}
+
+/* CARD */
+
+.card{
+width:450px;
+transform-style:preserve-3d;
+perspective:1000px;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+backdrop-filter:blur(22px);
+border-radius:35px;
+padding:35px;
+text-align:center;
+position:relative;
+overflow:hidden;
+transform-style:preserve-3d;
+transition:transform 0.08s linear;
+will-change:transform;
+box-shadow:
+0 0 50px rgba(139,92,246,0.6),
+0 0 120px rgba(139,92,246,0.25);
+animation:borderGlow 4s infinite alternate;
+}
+
+/* CARD GLOW */
+
+@keyframes borderGlow{
+
+from{
+box-shadow:
+0 0 40px rgba(139,92,246,0.5);
+}
+
+to{
+box-shadow:
+0 0 80px rgba(139,92,246,0.9),
+0 0 140px rgba(139,92,246,0.4);
+}
+
+}
+
+/* CARD EFFECT */
+
+.card::before{
+content:'';
+position:absolute;
+width:300px;
+height:300px;
+background:#8b5cf6;
+filter:blur(150px);
+right:-120px;
+top:-120px;
+opacity:0.45;
+}
+
+/* DP */
+
+.profileWrap{
+display:flex;
+justify-content:center;
+margin-bottom:20px;
+}
+
+.profile{
+width:140px;
+height:140px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid rgba(255,255,255,0.15);
+box-shadow:
+0 0 30px #8b5cf6,
+0 0 60px #8b5cf6;
+animation:dpGlow 5s infinite linear;
+}
+
+/* DP GLOW */
+
+@keyframes dpGlow{
+
+0%{
+box-shadow:0 0 20px #8b5cf6;
+}
+
+50%{
+box-shadow:0 0 50px #c084fc;
+}
+
+100%{
+box-shadow:0 0 20px #8b5cf6;
+}
+
+}
+
+/* NAME */
+
+.username{
+font-size:2.15rem;
+font-family:'Michroma',sans-serif;
+letter-spacing:2px;
+transition:0.3s;
+cursor:pointer;
+margin-bottom:12px;
+text-shadow:
+0 0 15px rgba(255,255,255,0.3);
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+width:100%;
+text-align:center;
+}
+
+.username span{
+margin-left:8px;
+color:#c084fc;
+
+text-shadow:
+0 0 15px #8b5cf6,
+0 0 30px #8b5cf6;
+}
+
+.username:hover{
+
+transform:scale(1.03);
+
+text-shadow:
+0 0 10px white,
+0 0 20px #c084fc,
+0 0 40px #8b5cf6,
+0 0 80px #8b5cf6;
+
+}
+
+.username:hover span{
+
+color:white;
+
+text-shadow:
+0 0 10px white,
+0 0 30px #c084fc,
+0 0 60px #8b5cf6;
+
+}
+
+/* TYPING */
+
+.typing{
+color:#c084fc;
+font-size:1rem;
+min-height:30px;
+margin-bottom:22px;
+font-weight:500;
+}
+
+/* BIO */
+
+.bio{
+line-height:1.9;
+font-size:1rem;
+opacity:0.92;
+margin-bottom:30px;
+color:#ddd;
+}
+
+/* BUTTONS */
+
+.socials{
+display:flex;
+flex-direction:column;
+gap:16px;
+}
+
+.socials a{
+text-decoration:none;
+padding:16px;
+border-radius:18px;
+font-weight:600;
+letter-spacing:1px;
+transition:0.4s;
+font-size:1rem;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:12px;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+background:rgba(34,197,94,0.15);
+border:1px solid rgba(34,197,94,0.4);
+color:#4ade80;
+box-shadow:0 0 20px rgba(34,197,94,0.2);
+}
+
+/* GITHUB */
+
+.github{
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.2);
+color:#fff;
+box-shadow:0 0 20px rgba(255,255,255,0.1);
+}
+
+/* ABOUT */
+
+.about{
+background:rgba(239,68,68,0.15);
+border:1px solid rgba(239,68,68,0.4);
+color:#f87171;
+box-shadow:0 0 20px rgba(239,68,68,0.2);
+}
+
+/* AXIOM */
+
+.axiom{
+background:rgba(0,136,204,0.18);
+border:1px solid rgba(0,136,204,0.45);
+color:#7dd3fc;
+box-shadow:
+0 0 25px rgba(0,136,204,0.35),
+0 0 50px rgba(0,136,204,0.15);
+font-size:1.1rem;
+font-weight:700;
+}
+
+/* INSTAGRAM */
+
+.instagram{
+background:linear-gradient(
+45deg,
+rgba(255,0,128,0.18),
+rgba(255,94,0,0.18)
+);
+
+border:1px solid rgba(255,0,128,0.4);
+
+color:#ff9acb;
+
+box-shadow:
+0 0 25px rgba(255,0,128,0.25);
+
+font-weight:700;
+}
+
+/* HOVER */
+
+.socials a:hover{
+transform:translateY(-4px) scale(1.03);
+filter:brightness(1.2);
+}
+
+.whatsapp:hover{
+box-shadow:0 0 40px rgba(34,197,94,0.7);
+}
+
+.github:hover{
+box-shadow:0 0 40px rgba(255,255,255,0.4);
+}
+
+.about:hover{
+box-shadow:0 0 40px rgba(239,68,68,0.7);
+}
+
+.axiom:hover{
+box-shadow:0 0 50px rgba(0,136,204,0.8);
+}
+
+.instagram:hover{
+box-shadow:0 0 50px rgba(255,0,128,0.8);
+}
+
+/* FOOTER */
+.stats{
+display:flex;
+justify-content:center;
+gap:12px;
+margin-bottom:25px;
+}
+
+.statBox{
+flex:1;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+border-radius:16px;
+cursor:pointer;
+padding:14px 10px;
+backdrop-filter:blur(12px);
+
+box-shadow:
+0 0 20px rgba(139,92,246,0.15);
+
+transition:0.3s;
+}
+
+.statBox:hover{
+
+transform:
+translateY(-5px)
+scale(1.05);
+
+box-shadow:
+0 0 20px rgba(139,92,246,0.5),
+0 0 40px rgba(139,92,246,0.7),
+0 0 70px rgba(139,92,246,0.4);
+
+border:1px solid rgba(192,132,252,0.6);
+
+background:
+rgba(139,92,246,0.12);
+
+}
+
+.statBox span{
+display:block;
+font-size:1.2rem;
+font-weight:700;
+color:#c084fc;
+margin-bottom:4px;
+}
+
+.statBox span{
+transition:0.3s;
+}
+
+.statBox:hover span{
+color:white;
+text-shadow:
+0 0 10px #c084fc,
+0 0 25px #c084fc;
+}
+
+.statBox p{
+font-size:0.8rem;
+opacity:0.7;
+}
+
+.footer{
+margin-top:28px;
+font-size:0.75rem;
+letter-spacing:4px;
+opacity:0.5;
+}
+
+/* MOBILE */
+
+@media(max-width:500px){
+
+.overlay h1{
+font-size:2.4rem;
+}
+
+.card{
+width:100%;
+padding:25px;
+}
+
+.bgText{
+font-size:20vw;
+}
+
+.bgText span{
+font-size:8vw;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="particles-js"></div>
+
+<div class="bgText">
+AXIOM
+<span>BOTS</span>
+</div>
+
+<!-- ENTER -->
+
+<div class="overlay" id="overlay">
+
+<h1>OWNERAXIOM</h1>
+
+<p>CLICK ANYWHERE TO ENTER</p>
+
+<div class="enterIcon">
+👇
+</div>
+
+<div class="clickBox">
+ENTER
+</div>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="container">
+
+<div class="card">
+
+<!-- VIDEO DP -->
+
+<div class="profileWrap">
+
+<video class="profile" autoplay muted loop playsinline>
+<source src="https://files.catbox.moe/y0hju7.mp4" type="video/mp4">
+</video>
+
+</div>
+
+<!-- NAME -->
+
+<div class="username">
+❍ᴡηєꝛΛꭙισϻ
+</div>
+
+<!-- TYPE -->
+
+<div class="typing" id="typing"></div>
+
+<!-- BIO -->
+
+<div class="bio">
+
+<div class="stats">
+
+<div class="statBox">
+<span id="viewCount">0</span>
+<p>Views</p>
+</div>
+
+<div class="statBox">
+24/7
+<p>Online</p>
+</div>
+
+<div class="statBox">
+PRO
+<p>Status</p>
+</div>
+
+</div>
+
+Building futuristic bots, premium experiences & dark aesthetic web creations.
+
+Turning ideas into reality with creativity, code & unstoppable energy.
+
+</div>
+
+<!-- BUTTONS -->
+
+<div class="socials">
+
+<a class="whatsapp" href="https://wa.me/911234567890" target="_blank">
+🟢 𝐖ʜᴧ𝞃sΛρρ
+</a>
+
+<a class="github" href="https://github.com/maanavbaby" target="_blank">
+⚪ 𝐆ι𝞃ʜ𝛖ʙ
+</a>
+
+<a class="about" href="https://t.me/aboutaxiom" target="_blank">
+🔴 Λʙσ𝛖𝞃 ϻєєʜ
+</a>
+
+<a class="axiom" href="https://t.me/axiombots" target="_blank">
+🔵 Λꭙισϻ𝐁σ𝞃s
+</a>
+
+<a class="instagram" href="https://instagram.com/maa7nav" target="_blank">
+🟣 𝚰ηs𝞃ᴧɢꝛᴧϻ
+</a>
+
+</div>
+
+<div class="footer">
+AXIOM ERA © 2026
+</div>
+
+</div>
+</div>
+
+<!-- MUSIC -->
+
+<audio id="music" autoplay loop>
+
+<!-- PUT YOUR MP3 LINK -->
+
+<source src="YOUR_MP3_LINK_HERE" type="audio/mp3">
+
+</audio>
+
+<script>
+
+/* ENTER */
+
+const overlay = document.getElementById('overlay');
+const music = document.getElementById('music');
+
+overlay.addEventListener('click',()=>{
+
+overlay.style.opacity='0';
+overlay.style.pointerEvents='none';
+
+setTimeout(()=>{
+
+music.play();
+
+},500);
+
+});
+
+/* TYPING */
+
+const texts = [
+
+'Building Premium Bots',
+'OWNER OF AXIOMBOTS  ',
+'𝑻𝒖𝒓𝒏𝒊𝒏𝒈 𝒊𝒅𝒆𝒂𝒔 𝒊𝒏𝒕𝒐 𝒂𝒖𝒕𝒐𝒏𝒐𝒎𝒐𝒖𝒔 𝒔𝒚𝒔𝒕𝒆𝒎𝒔.',
+'Dark Aesthetic Creator',
+'Future Tech Developer'
+
+]
+
+let count = 0;
+let index = 0;
+let currentText = '';
+let letter = '';
+
+(function type(){
+
+if(count === texts.length){
+count = 0;
+}
+
+currentText = texts[count];
+
+letter = currentText.slice(0, ++index);
+
+document.getElementById('typing').textContent = letter;
+
+if(letter.length === currentText.length){
+
+count++;
+index = 0;
+
+}
+
+setTimeout(type,120);
+
+})();
+
+/* PARTICLES */
+
+particlesJS('particles-js', {
+
+particles: {
+
+number: {
+value: 120
+},
+
+color: {
+value: '#8b5cf6'
+},
+
+shape: {
+type: 'circle'
+},
+
+opacity: {
+value: 0.5
+},
+
+size: {
+value: 2.5
+},
+
+line_linked: {
+
+enable: true,
+distance: 130,
+color: '#8b5cf6',
+opacity: 0.2,
+width: 1
+
+},
+
+move: {
+
+enable: true,
+speed: 2
+
+}
+
+}
+
+});
+
+/* 3D CARD */
+
+const card = document.querySelector('.card');
+
+document.addEventListener('mousemove',(e)=>{
+
+let x = (e.pageX - window.innerWidth / 2) / 25;
+let y = (e.pageY - window.innerHeight / 2) / 25;
+
+card.style.transform =
+`rotateY(${x}deg) rotateX(${-y}deg)`;
+
+});
+
+const bg = document.querySelector('.bgText');
+
+document.addEventListener('mousemove',(e)=>{
+
+let moveX = (e.pageX - window.innerWidth/2) / 40;
+let moveY = (e.pageY - window.innerHeight/2) / 40;
+
+bg.style.transform =
+`translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px)) scale(1.05)`;
+
+});
+
+fetch('https://api.countapi.xyz/hit/owneraxiom/views')
+.then(res => res.json())
+.then(data => {
+
+document.getElementById('viewCount').innerText =
+data.value;
+
+});
+
+</script>
+
+</body>
+</html>
