@@ -842,11 +842,8 @@ async function updateViews() {
 
 try {
 
-const namespace = "owneraxiom";
-const key = "views";
-
 const response = await fetch(
-`https://api.countapi.xyz/hit/${namespace}/${key}`
+'https://api.countapi.xyz/hit/owneraxiom/views'
 );
 
 const data = await response.json();
