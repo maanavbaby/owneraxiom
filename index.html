@@ -24,10 +24,23 @@ box-sizing:border-box;
 
 body{
 background:black;
-overflow:hidden;
+overflow-y:auto;
+overflow-x:hidden;
 font-family:'Poppins',sans-serif;
 color:white;
 cursor:pointer;
+min-height:100vh;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+width:6px;
+}
+
+::-webkit-scrollbar-thumb{
+background:#8b5cf6;
+border-radius:20px;
 }
 
 /* PARTICLES */
@@ -72,8 +85,6 @@ text-shadow:
 0 0 15px #8b5cf6,
 0 0 40px #8b5cf6;
 }
-
-/* BG ANIMATION */
 
 @keyframes bgZoom{
 
@@ -191,11 +202,11 @@ text-shadow:0 0 25px white,0 0 50px #8b5cf6,0 0 120px #8b5cf6;
 
 .container{
 width:100%;
-height:100vh;
+min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-padding:20px;
+padding:40px 20px;
 perspective:1000px;
 }
 
@@ -203,6 +214,7 @@ perspective:1000px;
 
 .card{
 width:450px;
+max-width:100%;
 transform-style:preserve-3d;
 perspective:1000px;
 background:rgba(255,255,255,0.05);
@@ -213,7 +225,6 @@ padding:35px;
 text-align:center;
 position:relative;
 overflow:hidden;
-transform-style:preserve-3d;
 transition:transform 0.08s linear;
 will-change:transform;
 box-shadow:
@@ -273,8 +284,6 @@ box-shadow:
 animation:dpGlow 5s infinite linear;
 }
 
-/* DP GLOW */
-
 @keyframes dpGlow{
 
 0%{
@@ -302,22 +311,11 @@ cursor:pointer;
 margin-bottom:12px;
 text-shadow:
 0 0 15px rgba(255,255,255,0.3);
-
 display:flex;
 justify-content:center;
 align-items:center;
-
 width:100%;
 text-align:center;
-}
-
-.username span{
-margin-left:8px;
-color:#c084fc;
-
-text-shadow:
-0 0 15px #8b5cf6,
-0 0 30px #8b5cf6;
 }
 
 .username:hover{
@@ -329,17 +327,6 @@ text-shadow:
 0 0 20px #c084fc,
 0 0 40px #8b5cf6,
 0 0 80px #8b5cf6;
-
-}
-
-.username:hover span{
-
-color:white;
-
-text-shadow:
-0 0 10px white,
-0 0 30px #c084fc,
-0 0 60px #8b5cf6;
 
 }
 
@@ -472,6 +459,7 @@ box-shadow:0 0 50px rgba(255,0,128,0.8);
 }
 
 /* FOOTER */
+
 .stats{
 display:flex;
 justify-content:center;
@@ -520,17 +508,6 @@ color:#c084fc;
 margin-bottom:4px;
 }
 
-.statBox span{
-transition:0.3s;
-}
-
-.statBox:hover span{
-color:white;
-text-shadow:
-0 0 10px #c084fc,
-0 0 25px #c084fc;
-}
-
 .statBox p{
 font-size:0.8rem;
 opacity:0.7;
@@ -541,6 +518,30 @@ margin-top:28px;
 font-size:0.75rem;
 letter-spacing:4px;
 opacity:0.5;
+}
+
+/* MUSIC PLAYER */
+
+.musicPlayer{
+margin-top:22px;
+background:rgba(255,255,255,0.06);
+border:1px solid rgba(255,255,255,0.1);
+padding:12px;
+border-radius:18px;
+backdrop-filter:blur(10px);
+}
+
+.musicPlayer p{
+font-size:0.8rem;
+margin-bottom:10px;
+color:#c084fc;
+letter-spacing:2px;
+}
+
+.musicPlayer audio{
+width:100%;
+height:40px;
+filter:invert(1) hue-rotate(180deg);
 }
 
 /* MOBILE */
@@ -562,6 +563,10 @@ font-size:20vw;
 
 .bgText span{
 font-size:8vw;
+}
+
+.stats{
+flex-direction:column;
 }
 
 }
@@ -677,22 +682,24 @@ Turning ideas into reality with creativity, code & unstoppable energy.
 
 </div>
 
+<!-- MUSIC PLAYER -->
+
+<div class="musicPlayer">
+
+<p>🎵 NOW PLAYING — VANCOUVER</p>
+
+<audio id="music" controls loop>
+<source src="https://files.catbox.moe/uaa8xy.m4a" type="audio/mp4">
+</audio>
+
+</div>
+
 <div class="footer">
 AXIOM ERA © 2026
 </div>
 
 </div>
 </div>
-
-<!-- MUSIC -->
-
-<audio id="music" autoplay loop>
-
-<!-- PUT YOUR MP3 LINK -->
-
-<source src="https://files.catbox.moe/uaa8xy.m4a" type="audio/mp4">
-
-</audio>
 
 <script>
 
@@ -719,8 +726,8 @@ music.play();
 const texts = [
 
 'Building Premium Bots',
-'OWNER OF AXIOMBOTS  ',
-'𝑻𝒖𝒓𝒏𝒊𝒏𝒈 𝒊𝒅𝒆𝒂𝒔 𝒊𝒏𝒕𝒐 𝒂𝒖𝒕𝒐𝒏𝒐𝒎𝒐𝒖𝒔 𝒔𝒚𝒔𝒕𝒆𝒎𝒔.',
+'OWNER OF AXIOMBOTS',
+'Turning ideas into autonomous systems.',
 'Dark Aesthetic Creator',
 'Future Tech Developer'
 
@@ -815,6 +822,8 @@ card.style.transform =
 
 });
 
+/* BG MOVE */
+
 const bg = document.querySelector('.bgText');
 
 document.addEventListener('mousemove',(e)=>{
@@ -827,25 +836,30 @@ bg.style.transform =
 
 });
 
+/* LIVE VIEWS COUNTER */
+
 async function updateViews() {
 
 try {
 
+const namespace = "owneraxiom";
+const key = "views";
+
 const response = await fetch(
-'https://api.countapi.xyz/hit/owneraxiom/pages'
+`https://api.countapi.xyz/hit/${namespace}/${key}`
 );
 
 const data = await response.json();
 
 document.getElementById('viewCount').innerText =
-data.value;
+data.value.toLocaleString();
 
 }
 
 catch(err){
 
 document.getElementById('viewCount').innerText =
-'99+';
+'0';
 
 }
 
