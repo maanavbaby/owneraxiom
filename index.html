@@ -233,8 +233,6 @@ box-shadow:
 animation:borderGlow 4s infinite alternate;
 }
 
-/* CARD GLOW */
-
 @keyframes borderGlow{
 
 from{
@@ -249,8 +247,6 @@ box-shadow:
 }
 
 }
-
-/* CARD EFFECT */
 
 .card::before{
 content:'';
@@ -318,20 +314,6 @@ width:100%;
 text-align:center;
 }
 
-.username:hover{
-
-transform:scale(1.03);
-
-text-shadow:
-0 0 10px white,
-0 0 20px #c084fc,
-0 0 40px #8b5cf6,
-0 0 80px #8b5cf6;
-
-}
-
-/* TYPING */
-
 .typing{
 color:#c084fc;
 font-size:1rem;
@@ -339,8 +321,6 @@ min-height:30px;
 margin-bottom:22px;
 font-weight:500;
 }
-
-/* BIO */
 
 .bio{
 line-height:1.9;
@@ -370,49 +350,28 @@ display:flex;
 align-items:center;
 justify-content:center;
 gap:12px;
+color:white;
 }
-
-/* WHATSAPP */
 
 .whatsapp{
 background:rgba(34,197,94,0.15);
 border:1px solid rgba(34,197,94,0.4);
-color:#4ade80;
-box-shadow:0 0 20px rgba(34,197,94,0.2);
 }
-
-/* GITHUB */
 
 .github{
 background:rgba(255,255,255,0.08);
 border:1px solid rgba(255,255,255,0.2);
-color:#fff;
-box-shadow:0 0 20px rgba(255,255,255,0.1);
 }
-
-/* ABOUT */
 
 .about{
 background:rgba(239,68,68,0.15);
 border:1px solid rgba(239,68,68,0.4);
-color:#f87171;
-box-shadow:0 0 20px rgba(239,68,68,0.2);
 }
-
-/* AXIOM */
 
 .axiom{
 background:rgba(0,136,204,0.18);
 border:1px solid rgba(0,136,204,0.45);
-color:#7dd3fc;
-box-shadow:
-0 0 25px rgba(0,136,204,0.35),
-0 0 50px rgba(0,136,204,0.15);
-font-size:1.1rem;
-font-weight:700;
 }
-
-/* INSTAGRAM */
 
 .instagram{
 background:linear-gradient(
@@ -422,43 +381,13 @@ rgba(255,94,0,0.18)
 );
 
 border:1px solid rgba(255,0,128,0.4);
-
-color:#ff9acb;
-
-box-shadow:
-0 0 25px rgba(255,0,128,0.25);
-
-font-weight:700;
 }
-
-/* HOVER */
 
 .socials a:hover{
 transform:translateY(-4px) scale(1.03);
-filter:brightness(1.2);
 }
 
-.whatsapp:hover{
-box-shadow:0 0 40px rgba(34,197,94,0.7);
-}
-
-.github:hover{
-box-shadow:0 0 40px rgba(255,255,255,0.4);
-}
-
-.about:hover{
-box-shadow:0 0 40px rgba(239,68,68,0.7);
-}
-
-.axiom:hover{
-box-shadow:0 0 50px rgba(0,136,204,0.8);
-}
-
-.instagram:hover{
-box-shadow:0 0 50px rgba(255,0,128,0.8);
-}
-
-/* FOOTER */
+/* STATS */
 
 .stats{
 display:flex;
@@ -472,32 +401,7 @@ flex:1;
 background:rgba(255,255,255,0.05);
 border:1px solid rgba(255,255,255,0.08);
 border-radius:16px;
-cursor:pointer;
 padding:14px 10px;
-backdrop-filter:blur(12px);
-
-box-shadow:
-0 0 20px rgba(139,92,246,0.15);
-
-transition:0.3s;
-}
-
-.statBox:hover{
-
-transform:
-translateY(-5px)
-scale(1.05);
-
-box-shadow:
-0 0 20px rgba(139,92,246,0.5),
-0 0 40px rgba(139,92,246,0.7),
-0 0 70px rgba(139,92,246,0.4);
-
-border:1px solid rgba(192,132,252,0.6);
-
-background:
-rgba(139,92,246,0.12);
-
 }
 
 .statBox span{
@@ -513,14 +417,7 @@ font-size:0.8rem;
 opacity:0.7;
 }
 
-.footer{
-margin-top:28px;
-font-size:0.75rem;
-letter-spacing:4px;
-opacity:0.5;
-}
-
-/* MUSIC PLAYER */
+/* MUSIC */
 
 .musicPlayer{
 margin-top:22px;
@@ -544,7 +441,12 @@ height:40px;
 filter:invert(1) hue-rotate(180deg);
 }
 
-/* MOBILE */
+.footer{
+margin-top:28px;
+font-size:0.75rem;
+letter-spacing:4px;
+opacity:0.5;
+}
 
 @media(max-width:500px){
 
@@ -583,8 +485,6 @@ AXIOM
 <span>BOTS</span>
 </div>
 
-<!-- ENTER -->
-
 <div class="overlay" id="overlay">
 
 <h1>OWNERAXIOM</h1>
@@ -601,13 +501,9 @@ ENTER
 
 </div>
 
-<!-- MAIN -->
-
 <div class="container">
 
 <div class="card">
-
-<!-- VIDEO DP -->
 
 <div class="profileWrap">
 
@@ -617,17 +513,11 @@ ENTER
 
 </div>
 
-<!-- NAME -->
-
 <div class="username">
 ❍ᴡηєꝛΛꭙισϻ
 </div>
 
-<!-- TYPE -->
-
 <div class="typing" id="typing"></div>
-
-<!-- BIO -->
 
 <div class="bio">
 
@@ -656,11 +546,9 @@ Turning ideas into reality with creativity, code & unstoppable energy.
 
 </div>
 
-<!-- BUTTONS -->
-
 <div class="socials">
 
-<a class="whatsapp" href="https://wa.me/911234567890" target="_blank">
+<a class="whatsapp" href="https://wa.me/2250799615660" target="_blank">
 🟢 𝐖ʜᴧ𝞃sΛρρ
 </a>
 
@@ -682,14 +570,12 @@ Turning ideas into reality with creativity, code & unstoppable energy.
 
 </div>
 
-<!-- MUSIC PLAYER -->
-
 <div class="musicPlayer">
 
-<p>🎵 NOW PLAYING — VANCOUVER</p>
+<p>🎵 NOW PLAYING — MEMORY REBOOT</p>
 
 <audio id="music" controls loop>
-<source src="https://files.catbox.moe/uaa8xy.m4a" type="audio/mp4">
+<source src="https://files.catbox.moe/0yytwr.mp3" type="audio/mp3">
 </audio>
 
 </div>
@@ -703,21 +589,22 @@ AXIOM ERA © 2026
 
 <script>
 
-/* ENTER */
+/* ENTER FIX */
 
 const overlay = document.getElementById('overlay');
 const music = document.getElementById('music');
 
-overlay.addEventListener('click',()=>{
+overlay.addEventListener('click', () => {
 
-overlay.style.opacity='0';
-overlay.style.pointerEvents='none';
+overlay.style.opacity = '0';
 
-setTimeout(()=>{
+setTimeout(() => {
 
-music.play();
+overlay.style.display = 'none';
 
-},500);
+music.play().catch(() => {});
+
+}, 1000);
 
 });
 
@@ -731,35 +618,30 @@ const texts = [
 'Dark Aesthetic Creator',
 'Future Tech Developer'
 
-]
+];
 
 let count = 0;
 let index = 0;
-let currentText = '';
-let letter = '';
 
-(function type(){
+function type(){
 
-if(count === texts.length){
-count = 0;
-}
+let currentText = texts[count];
 
-currentText = texts[count];
+document.getElementById('typing').textContent =
+currentText.slice(0, index++);
 
-letter = currentText.slice(0, ++index);
+if(index > currentText.length){
 
-document.getElementById('typing').textContent = letter;
-
-if(letter.length === currentText.length){
-
-count++;
+count = (count + 1) % texts.length;
 index = 0;
 
 }
 
 setTimeout(type,120);
 
-})();
+}
+
+type();
 
 /* PARTICLES */
 
@@ -836,55 +718,99 @@ bg.style.transform =
 
 });
 
-/* ULTRA LIVE VIEW COUNTER */
+</script>
 
-const counter = document.getElementById("viewCount");
+<script type="module">
 
-/* LOCAL INCREMENT */
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-let views = localStorage.getItem("owneraxiom_views");
+import {
+getFirestore,
+doc,
+getDoc,
+setDoc,
+updateDoc,
+increment
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-if (!views) {
+const firebaseConfig = {
 
-views = 0;
+apiKey: "AIzaSyBhi7o-XcyfDlO2V1G-xbkoTfmpCqntdns",
 
+authDomain: "owneraxiom-dd05c.firebaseapp.com",
+
+projectId: "owneraxiom-dd05c",
+
+storageBucket: "owneraxiom-dd05c.firebasestorage.app",
+
+messagingSenderId: "810772275805",
+
+appId: "1:810772275805:web:c7495c12b77482a766a3b4",
+
+measurementId: "G-EEBD43BN6W"
+
+};
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+function formatViews(num){
+
+if(num >= 1000000){
+return (num / 1000000).toFixed(1) + 'M';
 }
 
-views = parseInt(views) + 1;
-
-localStorage.setItem("owneraxiom_views", views);
-
-/* FORMAT */
-
-function formatViews(num) {
-
-if (num >= 1000000000) {
-
-return (num / 1000000000).toFixed(1) + "B";
-
+if(num >= 1000){
+return (num / 1000).toFixed(1) + 'K';
 }
-
-else if (num >= 1000000) {
-
-return (num / 1000000).toFixed(1) + "M";
-
-}
-
-else if (num >= 1000) {
-
-return (num / 1000).toFixed(1) + "K";
-
-}
-
-else {
 
 return num;
 
 }
 
+async function updateViews(){
+
+const ref = doc(db, "website", "counter");
+
+try{
+
+const snap = await getDoc(ref);
+
+if(!snap.exists()){
+
+await setDoc(ref,{
+views:1
+});
+
+document.getElementById("viewCount").innerText = "1";
+
+}else{
+
+await updateDoc(ref,{
+views: increment(1)
+});
+
+const updatedSnap = await getDoc(ref);
+
+const views = updatedSnap.data().views;
+
+document.getElementById("viewCount").innerText =
+formatViews(views);
+
 }
 
-counter.innerText = formatViews(views);
+}catch(err){
+
+console.log(err);
+
+document.getElementById("viewCount").innerText = "0";
+
+}
+
+}
+
+updateViews();
 
 </script>
 
