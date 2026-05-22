@@ -655,7 +655,7 @@ Turning ideas into reality with creativity, code & unstoppable energy.
 
 <div class="socials">
 
-<a class="whatsapp" href="https://wa.me/2250799615660" target="_blank">
+<a class="whatsapp" href="https://wa.me/911234567890" target="_blank">
 🟢 𝐖ʜᴧ𝞃sΛρρ
 </a>
 
@@ -690,7 +690,7 @@ AXIOM ERA © 2026
 
 <!-- PUT YOUR MP3 LINK -->
 
-<source src="YOUR_MP3_LINK_HERE" type="audio/mp3">
+<source src="https://files.catbox.moe/uaa8xy.m4a" type="audio/mp4">
 
 </audio>
 
@@ -827,14 +827,31 @@ bg.style.transform =
 
 });
 
-fetch('https://api.countapi.xyz/hit/owneraxiom/views')
-.then(res => res.json())
-.then(data => {
+async function updateViews() {
+
+try {
+
+const response = await fetch(
+'https://api.countapi.xyz/hit/owneraxiom/pages'
+);
+
+const data = await response.json();
 
 document.getElementById('viewCount').innerText =
 data.value;
 
-});
+}
+
+catch(err){
+
+document.getElementById('viewCount').innerText =
+'99+';
+
+}
+
+}
+
+updateViews();
 
 </script>
 
