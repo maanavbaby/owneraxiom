@@ -836,55 +836,55 @@ bg.style.transform =
 
 });
 
-/* REAL LIVE VIEW COUNTER */
-
-async function updateViews() {
+/* ULTRA LIVE VIEW COUNTER */
 
 const counter = document.getElementById("viewCount");
 
-try {
+/* LOCAL INCREMENT */
 
-const res = await fetch(
-"https://api.countapi.xyz/hit/owneraxiom.live/views"
-);
+let views = localStorage.getItem("owneraxiom_views");
 
-const data = await res.json();
+if (!views) {
 
-let views = data.value;
+views = 0;
+
+}
+
+views = parseInt(views) + 1;
+
+localStorage.setItem("owneraxiom_views", views);
 
 /* FORMAT */
 
-if (views >= 1000000000) {
+function formatViews(num) {
 
-views = (views / 1000000000).toFixed(1) + "B";
+if (num >= 1000000000) {
 
-}
-
-else if (views >= 1000000) {
-
-views = (views / 1000000).toFixed(1) + "M";
+return (num / 1000000000).toFixed(1) + "B";
 
 }
 
-else if (views >= 1000) {
+else if (num >= 1000000) {
 
-views = (views / 1000).toFixed(1) + "K";
-
-}
-
-counter.innerText = views;
+return (num / 1000000).toFixed(1) + "M";
 
 }
 
-catch (err) {
+else if (num >= 1000) {
 
-counter.innerText = "0";
+return (num / 1000).toFixed(1) + "K";
+
+}
+
+else {
+
+return num;
 
 }
 
 }
 
-window.onload = updateViews;
+counter.innerText = formatViews(views);
 
 </script>
 
