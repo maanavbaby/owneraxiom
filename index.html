@@ -836,25 +836,55 @@ bg.style.transform =
 
 });
 
-/* LIVE VIEWS COUNTER */
+/* REAL LIVE VIEW COUNTER */
 
-fetch("https://api.countapi.xyz/hit/owneraxiom/visits")
+async function updateViews() {
 
-.then((res) => res.json())
+const counter = document.getElementById("viewCount");
 
-.then((data) => {
+try {
 
-document.getElementById("viewCount").innerText =
-data.value;
+const res = await fetch(
+"https://api.countapi.xyz/hit/owneraxiom.live/views"
+);
 
-})
+const data = await res.json();
 
-.catch(() => {
+let views = data.value;
 
-document.getElementById("viewCount").innerText =
-"0";
+/* FORMAT */
 
-});
+if (views >= 1000000000) {
+
+views = (views / 1000000000).toFixed(1) + "B";
+
+}
+
+else if (views >= 1000000) {
+
+views = (views / 1000000).toFixed(1) + "M";
+
+}
+
+else if (views >= 1000) {
+
+views = (views / 1000).toFixed(1) + "K";
+
+}
+
+counter.innerText = views;
+
+}
+
+catch (err) {
+
+counter.innerText = "0";
+
+}
+
+}
+
+window.onload = updateViews;
 
 </script>
 
